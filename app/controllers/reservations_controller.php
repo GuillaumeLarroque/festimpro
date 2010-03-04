@@ -2,6 +2,8 @@
 class ReservationsController extends AppController {
 
 	var $name = 'Reservations';
+	var $components = array('Email');
+	
 
 	function index() {
 		$this->Reservation->recursive = 0;
@@ -32,15 +34,17 @@ class ReservationsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Reservation->create();
 			if ($this->Reservation->save($this->data)) {
-				$this->Session->setFlash(__('Votre reservation a bien ete enregistree', true));
+				$this->Session->setFlash(__('Votre reservation a bien été enregistrée', true));
+				$this->_envoiMailUtilisateur($this->Reservation->id);
 				$this->Session->write('reservation_id', $this->Reservation->id);
 				$this->redirect(array('action' => 'confirmation'));
 			} else {
-				$this->Session->setFlash(__('The reservation could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('Votre réservation n\'a pas pu être enregistré. Veuillez réessayer.', true));
 			}
 		}
 		$this->set('match', $this->Reservation->Match->findById($match_id));
 	}
+	
 	
 	
 	function confirmation(){
@@ -51,6 +55,7 @@ class ReservationsController extends AppController {
 		$this->set('reservation', $reservation );
 		$this->set('salle', $this->Salle->findById($reservation['Match']['salle_id']) );
 	}
+	
 	
 	function gala($match_id=null) {
 		if (!empty($this->data)) {
@@ -138,5 +143,26 @@ class ReservationsController extends AppController {
 		$this->Session->setFlash(__('La réservation n\'a pas pu être supprimée', true));
 		$this->redirect(array('action' => 'index'));
 	}
+	
+	function _envoiMailUtilisateur($id) {
+		$reservation = $this->Reservation->read(null,$id);
+		$this->Email->to = $reservation ['Reservation']['email'];
+		//$this->Email->bcc = array('secret@exemple.com');
+		$this->Email->subject = 'Confirmation de votre réservation';
+		$this->Email->replyTo = 'guillaume@creagraphie.fr';
+		$this->Email->from = 'Guillaume Larroque <guillaume@creagraphie.fr>';
+		$this->Email->template = 'simple_message'; // notez l'absence de '.ctp'
+		// Envoi en 'html', 'text' ou 'both' (par défaut c'est 'text')
+		$this->Email->sendAs = 'both'; // parce que nous aimons envoyer de jolis emails
+		// Positionner les variables comme d'habitude
+		$this->set('Reservation', $reservation);
+		// Ne passer aucun argument à send()
+		$this->Email->send();
+	}
+	
+	function _envoiMailAdministrateur(){
+				
+	}
+
 }
 ?>

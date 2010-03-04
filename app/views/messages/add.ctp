@@ -4,7 +4,7 @@
 <?php
 	echo $this->Form->input('nom', array('label'=>'Votre nom'));
 	echo $this->Form->input('texte', array('label'=>'Votre message'));
-	echo $this->Form->input('email', array('label'=>'Votre adresse mail (facultatif)'));
+	echo $this->Form->input('email', array('label'=>'Votre adresse e-mail (facultatif)'));
 ?>
 </fieldset>
 <img src="<?php echo $captcha_image_url;?> " id="captcha" alt="CAPTCHA Image" />
