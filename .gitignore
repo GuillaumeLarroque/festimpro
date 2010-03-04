@@ -1,0 +1,12 @@
+app/tmp
+app/tmp/**/*
+app/tmp/**/**/*
+.htaccess
+app/.htaccess
+app/config/core.php
+app/config/config.php
+app/config/database.php
+app/webroot/.htaccess
+app/webroot/index.php
+app/webroot/test.php
+!.gitignore
