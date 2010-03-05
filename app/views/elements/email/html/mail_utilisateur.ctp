@@ -1,7 +1,7 @@
-<h1>Merci!</h1>
 <p>
-
-   <?php echo $reservation['Reservation']['prenom'].' '.$reservation['Reservation']['nom']; ?>, Nous vous remercions d'avoir effectué votre réservation en ligne!
+   <?php echo $reservation['Reservation']['prenom'].' '.$reservation['Reservation']['nom']; ?>,
+   <br/>
+   Nous vous remercions d'avoir effectué votre réservation en ligne!
    Voici un récapitulatif de votre réservation :
    <ul>
     <li>
@@ -35,5 +35,3 @@
     
     <?php $this->Html->link('Retour à l\'accueil du site', array('controller'=>'pages','action'=>'index') ); ?>
 </p>
-
-<br/>Mail envoyé : <?php echo $this->Session->flash('email'); ?>

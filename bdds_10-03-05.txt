@@ -1,0 +1,203 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.4
+-- http://www.phpmyadmin.net
+--
+-- Serveur: localhost
+-- G�n�r� le : Ven 05 Mars 2010 � 12:01
+-- Version du serveur: 5.1.37
+-- Version de PHP: 5.2.11
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Base de donn�es: `festimpro`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rel_matches`
+--
+
+CREATE TABLE `rel_matches` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rencontre` varchar(250) NOT NULL,
+  `date` varchar(250) NOT NULL,
+  `salle_id` int(11) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Contenu de la table `rel_matches`
+--
+
+INSERT INTO `rel_matches` VALUES(2, 'LIDY vs LUDI', 'Lundi 3 mai', 1, 'match');
+INSERT INTO `rel_matches` VALUES(3, 'LITCHI vs Malade Imaginaire', 'Mardi 4 mai', 1, 'match');
+INSERT INTO `rel_matches` VALUES(4, 'Kr̩mlimpro vs Ludoth̬que de Boulogne', 'Mecredi 5 mai', 1, 'match');
+INSERT INTO `rel_matches` VALUES(5, 'LIBAP vs LISM', 'Jeudi 6 mai', 2, 'match');
+INSERT INTO `rel_matches` VALUES(6, 'LIFA vs ImproC̩tout', 'Vendredi 7 mai', 2, 'match');
+INSERT INTO `rel_matches` VALUES(7, 'Carafes vs Ultraviolet', 'Samedi 8 mai', 2, 'match');
+INSERT INTO `rel_matches` VALUES(8, 'Match des ̩toiles', 'Dimanche 9 mai', 3, 'gala');
+INSERT INTO `rel_matches` VALUES(9, 'Pass Festimpro', 'Du lundi 3 au samedi 8 mai', 1, 'pass');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rel_messages`
+--
+
+CREATE TABLE `rel_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(150) NOT NULL,
+  `texte` text NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `rel_messages`
+--
+
+INSERT INTO `rel_messages` VALUES(1, 'Guillaume', 'c''̩tait cool', '', '0000-00-00 00:00:00');
+INSERT INTO `rel_messages` VALUES(2, 'Oph̩lie', 'azeazeioazeuaze\r\n\r\nqsdqdjqd\r\nazeazeaze lkjazekaze', 'opz@ze.fr', '2010-03-03 09:59:04');
+INSERT INTO `rel_messages` VALUES(3, 'g', 'azeaze', '', '2010-03-03 10:58:05');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rel_reservations`
+--
+
+CREATE TABLE `rel_reservations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `prenom` varchar(250) NOT NULL,
+  `nom` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `match_id` int(11) NOT NULL,
+  `nombre_de_places` int(11) NOT NULL,
+  `tarif_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=75 ;
+
+--
+-- Contenu de la table `rel_reservations`
+--
+
+INSERT INTO `rel_reservations` VALUES(32, 'test', 'resa', 'aze@test.com', 3, 9, 1, '2010-02-23 11:49:34');
+INSERT INTO `rel_reservations` VALUES(31, 'oph', 'aze', 'aze@test.com', 2, 15, 1, '2010-02-23 11:28:15');
+INSERT INTO `rel_reservations` VALUES(30, 'AZE', 'azez', 'aze@test.com', 4, 10, 1, '2010-02-23 11:27:59');
+INSERT INTO `rel_reservations` VALUES(29, 'Guillaume', 'Laroque', 'guillaume@creagraphie.fr', 4, 4, 1, '2010-02-23 11:09:28');
+INSERT INTO `rel_reservations` VALUES(33, 'Guillaume', 'Larroque', 'guillaume@creagraphie.fr', 5, 5, 2, '2010-02-24 11:03:32');
+INSERT INTO `rel_reservations` VALUES(34, 'aze', 'qsd', 'guillaume@creagraphie.fr', 4, 4, 1, '2010-02-24 11:22:56');
+INSERT INTO `rel_reservations` VALUES(35, 'aze', 'qsd', 'guillaume@creagraphie.fr', 4, 4, 1, '2010-02-24 11:24:04');
+INSERT INTO `rel_reservations` VALUES(36, 'Oph̩lie', 'David', 'ophele@aze.fr', 8, 4, 3, '2010-02-24 11:58:15');
+INSERT INTO `rel_reservations` VALUES(37, 'aze', 'azeaze', 'aze@test.com', 6, 4, 1, '2010-02-24 12:13:02');
+INSERT INTO `rel_reservations` VALUES(47, 'prenom', 'nom', 'machin@truc.fr', 4, 4, 1, '2010-03-05 10:05:38');
+INSERT INTO `rel_reservations` VALUES(39, 'aze', 'azeaze', 'aze@test.com', 6, 4, 1, '2010-02-24 12:14:12');
+INSERT INTO `rel_reservations` VALUES(40, 'aze', 'azeaze', 'aze@test.com', 6, 4, 1, '2010-02-24 12:14:15');
+INSERT INTO `rel_reservations` VALUES(41, 'aze', 'azeaze', 'aze@test.com', 6, 4, 1, '2010-02-24 12:14:49');
+INSERT INTO `rel_reservations` VALUES(42, 'Guillaume', 'Larroque', 'guillaume@creagraphie.fr', 3, 10, 2, '2010-02-25 09:29:51');
+INSERT INTO `rel_reservations` VALUES(43, 'Guillaume', 'Larroque', 'guillaume@creagraphie.fr', 3, 10, 1, '2010-02-25 09:42:00');
+INSERT INTO `rel_reservations` VALUES(44, 'Guillaume', 'Larroque', 'guillaume@creagraphie.fr', 3, 10, 1, '2010-02-25 09:42:08');
+INSERT INTO `rel_reservations` VALUES(45, 'Guillaume', 'Larroque', 'guillaume@creagraphie.fr', 3, 10, 1, '2010-02-25 09:42:29');
+INSERT INTO `rel_reservations` VALUES(46, 'Pierre Fran̤ois', 'Ricard', 'p.f.ricard@free.fr', 9, 32, 4, '2010-02-26 09:55:51');
+INSERT INTO `rel_reservations` VALUES(48, 'prenom', 'nom', 'machin@truc.fr', 4, 4, 1, '2010-03-05 10:16:29');
+INSERT INTO `rel_reservations` VALUES(49, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:24:22');
+INSERT INTO `rel_reservations` VALUES(50, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:24:40');
+INSERT INTO `rel_reservations` VALUES(51, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:24:40');
+INSERT INTO `rel_reservations` VALUES(52, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:27:44');
+INSERT INTO `rel_reservations` VALUES(53, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:30:59');
+INSERT INTO `rel_reservations` VALUES(54, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:31:11');
+INSERT INTO `rel_reservations` VALUES(55, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:32:13');
+INSERT INTO `rel_reservations` VALUES(56, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:33:11');
+INSERT INTO `rel_reservations` VALUES(57, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:33:53');
+INSERT INTO `rel_reservations` VALUES(58, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:34:26');
+INSERT INTO `rel_reservations` VALUES(59, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:35:03');
+INSERT INTO `rel_reservations` VALUES(60, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:38:00');
+INSERT INTO `rel_reservations` VALUES(61, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:39:37');
+INSERT INTO `rel_reservations` VALUES(62, 'prenom', 'nom', 'guiyome91@hotmail.com', 4, 4, 1, '2010-03-05 10:40:05');
+INSERT INTO `rel_reservations` VALUES(63, 'gui', 'llaume', 'guiyome91@hotmail.com', 2, 15, 1, '2010-03-05 11:16:32');
+INSERT INTO `rel_reservations` VALUES(64, 'machin', 'truc', 'machin@truc.fr', 5, 12, 1, '2010-03-05 11:38:59');
+INSERT INTO `rel_reservations` VALUES(65, 'Machin', 'Truc', 'machin@truc.fr', 5, 12, 1, '2010-03-05 11:39:21');
+INSERT INTO `rel_reservations` VALUES(66, 'Machin', 'Truc', 'machin@truc.fr', 5, 12, 1, '2010-03-05 11:39:48');
+INSERT INTO `rel_reservations` VALUES(67, 'Machin', 'Truc', 'machin@truc.fr', 5, 12, 1, '2010-03-05 11:40:13');
+INSERT INTO `rel_reservations` VALUES(68, 'Machin', 'Truc', 'machin@truc.fr', 5, 12, 1, '2010-03-05 11:40:30');
+INSERT INTO `rel_reservations` VALUES(69, 'Machin', 'Truc', 'machin@truc.fr', 5, 12, 1, '2010-03-05 11:41:45');
+INSERT INTO `rel_reservations` VALUES(70, 'Machin', 'Truc', 'machin@truc.fr', 5, 12, 1, '2010-03-05 11:42:47');
+INSERT INTO `rel_reservations` VALUES(71, 'Machin', 'Truc', 'machin@truc.fr', 5, 12, 1, '2010-03-05 11:43:38');
+INSERT INTO `rel_reservations` VALUES(72, 'Machin', 'Truc', 'machin@truc.fr', 5, 12, 1, '2010-03-05 11:44:47');
+INSERT INTO `rel_reservations` VALUES(73, 'Machin', 'Truc', 'machin@truc.fr', 5, 12, 1, '2010-03-05 11:47:48');
+INSERT INTO `rel_reservations` VALUES(74, 'Machin', 'Truc', 'machin@truc.fr', 5, 12, 1, '2010-03-05 11:51:07');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rel_salles`
+--
+
+CREATE TABLE `rel_salles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(150) NOT NULL,
+  `adresse` text NOT NULL,
+  `metro` varchar(100) NOT NULL,
+  `nombre_de_places` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `rel_salles`
+--
+
+INSERT INTO `rel_salles` VALUES(1, 'Gymnase Elisabeth', '7 avenue Paul Appell\r\n75014 Paris', 'Porte orleans', 350);
+INSERT INTO `rel_salles` VALUES(2, 'Gymnase Didot', '26 Avenue Georges Lafenestre - 75014 Paris', 'Portes de Vanves', 350);
+INSERT INTO `rel_salles` VALUES(3, 'Salle des f̻tes, mairie 14e', 'adresse', '', 300);
+INSERT INTO `rel_salles` VALUES(4, 'Th̩atre 14', '20 avenue Marc Sangnier - 75014 Paris', '', 160);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rel_tarifs`
+--
+
+CREATE TABLE `rel_tarifs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(150) NOT NULL,
+  `prix` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `rel_tarifs`
+--
+
+INSERT INTO `rel_tarifs` VALUES(1, 'PAF 5', 5);
+INSERT INTO `rel_tarifs` VALUES(2, 'PAF 7', 7);
+INSERT INTO `rel_tarifs` VALUES(3, 'PAF 12', 12);
+INSERT INTO `rel_tarifs` VALUES(4, 'Festimpro', 25);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rel_users`
+--
+
+CREATE TABLE `rel_users` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `login` varchar(16) NOT NULL,
+  `password` char(40) NOT NULL,
+  `disabled` tinyint(1) unsigned NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Contenu de la table `rel_users`
+--
+
+INSERT INTO `rel_users` VALUES(1, 'admin', 'd4d0fb24e72028c3aa30642a9807e07d560035ff', 0, '2010-02-04 10:05:08');
+INSERT INTO `rel_users` VALUES(2, 'root', 'cf4d1c3078ee0b012aec6db0077d85085bc217b5', 0, '2010-02-04 10:07:40');
+INSERT INTO `rel_users` VALUES(3, 'root', '8692c1b91241fcdb3b50c506b63c909e12467f10', 0, '2010-02-18 09:37:23');
+INSERT INTO `rel_users` VALUES(6, 'admin', '81d6461dea107c7cabf79c57006ddab2ae411e42', 0, '2010-02-25 11:13:00');

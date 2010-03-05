@@ -35,7 +35,8 @@ class ReservationsController extends AppController {
 			$this->Reservation->create();
 			if ($this->Reservation->save($this->data)) {
 				$this->Session->setFlash(__('Votre reservation a bien été enregistrée', true));
-				$this->_envoiMailUtilisateur($this->Reservation->id);
+				//$this->_envoiMailUtilisateur($this->Reservation->id);
+				$this->_envoiMailAdministrateur($this->Reservation->id);
 				$this->Session->write('reservation_id', $this->Reservation->id);
 				$this->redirect(array('action' => 'confirmation'));
 			} else {
@@ -146,22 +147,59 @@ class ReservationsController extends AppController {
 	
 	function _envoiMailUtilisateur($id) {
 		$reservation = $this->Reservation->read(null,$id);
-		$this->Email->to = $reservation ['Reservation']['email'];
+		
+		//$this->Email->delivery = 'debug';
+
+		$this->Email->to = $reservation['Reservation']['email'];
+		
 		//$this->Email->bcc = array('secret@exemple.com');
+		$this->Email->layout = 'default';
 		$this->Email->subject = 'Confirmation de votre réservation';
 		$this->Email->replyTo = 'guillaume@creagraphie.fr';
 		$this->Email->from = 'Guillaume Larroque <guillaume@creagraphie.fr>';
-		$this->Email->template = 'simple_message'; // notez l'absence de '.ctp'
+		$this->Email->template = 'mail_utilisateur'; // notez l'absence de '.ctp'
 		// Envoi en 'html', 'text' ou 'both' (par défaut c'est 'text')
 		$this->Email->sendAs = 'both'; // parce que nous aimons envoyer de jolis emails
 		// Positionner les variables comme d'habitude
-		$this->set('Reservation', $reservation);
+		
+		$this->loadModel('Salle');
+		
+		$this->set('reservation', $reservation );
+		$this->set('salle', $this->Salle->findById($reservation['Match']['salle_id']) );
 		// Ne passer aucun argument à send()
 		$this->Email->send();
+		
+		//$reservation=$this->Reservation->findById( $id );
+		
+		
 	}
 	
-	function _envoiMailAdministrateur(){
+	function _envoiMailAdministrateur($id){
+		$reservation = $this->Reservation->read(null,$id);
+		
+		$conditions = array('Reservation.match_id'=>array($reservation['Match']['id'], 9) );
+		
+		$nombre = $this->Reservation->find('first', array('fields'=>array('SUM(Reservation.nombre_de_places) as nombre'), 'conditions'=>$conditions ) );
+		$this->set('nombre_de_reservations', $nombre[0]['nombre']);
+		$this->set('reservation', $reservation );
+		
+		$this->set( 'match', $this->Reservation->Match->read(null, $reservation['Match']['id']) );
+		
+		//$this->set( 'match', $this->Reservation->Match->read(null, $id) );
 				
+		$this->Email->delivery='debug';
+		$this->Email->to = 'guillaume@creagraphie.fr';
+		//$this->Email->bcc = array('secret@exemple.com');
+		$this->Email->subject = 'Confirmation de votre réservation';
+		$this->Email->replyTo = 'contact@creagraphie.fr';
+		$this->Email->from = 'Service de reservation <contact@creagraphie.fr>';
+		$this->Email->template = 'mail_administrateur'; // notez l'absence de '.ctp'
+		// Envoi en 'html', 'text' ou 'both' (par défaut c'est 'text')
+		$this->Email->sendAs = 'both'; // parce que nous aimons envoyer de jolis emails
+		// Positionner les variables comme d'habitude
+		
+		// Ne passer aucun argument à send()
+		$this->Email->send();		
 	}
 
 }
