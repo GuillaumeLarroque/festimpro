@@ -6,7 +6,17 @@ class Message extends AppModel {
 		'nom' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Veuillez remplir ce champ',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'texte' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Veuillez entrer un message',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

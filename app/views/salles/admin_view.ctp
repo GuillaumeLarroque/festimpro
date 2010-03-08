@@ -27,7 +27,7 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('Modifier cette %s', true), __('Salle', true)), array('action' => 'edit', $salle['Salle']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('Supprimer cette %s', true), __('Salle', true)), array('action' => 'delete', $salle['Salle']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $salle['Salle']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('Supprimer cette %s', true), __('Salle', true)), array('action' => 'delete', $salle['Salle']['id']), null, sprintf(__('ætes vous sur de vouloir supprimer # %s?', true), $salle['Salle']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Liste des %s', true), __('Salles', true)), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Nouvelle %s', true), __('Salle', true)), array('action' => 'add')); ?> </li>
 	</ul>

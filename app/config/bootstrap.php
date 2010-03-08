@@ -62,4 +62,7 @@ setlocale(LC_TIME, $locale);
  * Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
+ 
+ Configure::write('site.adminEmail', 'guillaume@creagraphie.fr');
+ Configure::write('site.URL', 'http://localhost:8888/impro14/' );
 ?>

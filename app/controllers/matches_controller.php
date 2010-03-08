@@ -21,7 +21,12 @@ class MatchesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		
-		$conditions = array('Reservation.match_id'=>array($id,9) );
+		if($id==8)
+			$conditions = array('Reservation.match_id'=>8 );
+		else if($id==9)
+			$conditions = array('Reservation.match_id'=>9 );
+		else
+			$conditions = array('Reservation.match_id'=>array($id,9) );
 		
 		$nombre = $this->Match->Reservation->find('first', array('fields'=>array('SUM(Reservation.nombre_de_places) as nombre'), 'conditions'=>$conditions ) );
 		$this->set('nombre_de_reservations', $nombre[0]['nombre']);
@@ -31,7 +36,7 @@ class MatchesController extends AppController {
 		$this->set( 'match', $this->Match->read(null, $id) );
 	}
 
-	function add() {
+	function match_add() {
 		if (!empty($this->data)) {
 			$this->Match->create();
 			if ($this->Match->save($this->data)) {

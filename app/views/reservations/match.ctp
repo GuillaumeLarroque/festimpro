@@ -1,6 +1,6 @@
 
 <div style='text-align:center; width:100%; margin:0;'>
-	<?php echo $this->Form->create('Reservation');?>
+	<?php echo $this->Form->create('Reservation', array('action'=>'match/'.$match['Match']['id'] ));?>
 	<fieldset style="width:500px; margin:0 auto; 	text-align:left;">
  		<legend><?php printf(__('Effectuer une r&eacute;servation', true)); ?></legend>
 	<p>
@@ -20,23 +20,31 @@
 		if($match['Match']['type']=='gala')
 		{
 			$tarif_par_defaut=3;
-			$options=array(3=>'10€ : tarif unique');
+			$options=array(3=>'10€ (pas de réduction pour cette rencontre)');
 		}
 		else if($match['Match']['type']=='pass')
 		{
 			$tarif_par_defaut=4;
-			$options=array(4=>'25€ : tarif unique pour tous les matchs du lundi au samedi (dimanche non compris)');
+			$options=array(4=>'25€ : participation unique pour tous les matchs du lundi au samedi (dimanche non compris)');
 		}
 		else
 		{
 			$tarif_par_defaut=1;
-			$options=array(1=>'Tarif plein : 7€', 2=>'Tarif réduit : 5€ (étudiant, Mineur, Chomeur)');
+			$options=array(1=>'Normal :  7€', 2=>'Réduit : 5€ (étudiant, Mineur, Chomeur)');
 		}
 		
-		echo $this->Form->radio( 'tarif_id', $options, array('legend'=>'Tarif*', 'value'=>$tarif_par_defaut) );
+		echo $this->Form->radio( 'tarif_id', $options, array('legend'=>'Participation aux frais (Le prix sera à régler sur place)', 'value'=>$tarif_par_defaut) );
 	?>
-	<p>*Le prix sera à régler sur place</p>
 	
+	
+	<img src="<?php echo $captcha_image_url;?> " id="captcha" alt="CAPTCHA Image" />
+	<a href="#" style="margin:0;padding:0;" onclick="document.getElementById('captcha').src = '<?php echo $this->webroot;?>messages/securimage/' + Math.random(); return false">
+	Recharger l'image
+	</a>
+	<?php echo $this->Form->input('captcha_code' ,array('label'=>'Veuillez recopier le code ci-dessus pour valider votre réservation'));?>
+		
+	<div style="color:red;margin:0;padding:0;"><?php echo $error_captcha; ?></div>
+	<div style="color:green;margin:0;padding:0;"><?php echo $success_captcha; ?></div>
 	</fieldset>
 	<?php echo $this->Form->end('Valider la réservation');?>
 </div>

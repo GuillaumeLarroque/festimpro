@@ -14,7 +14,7 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Supprimer ce message', true), array('action' => 'delete', $this->Form->value('Message.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Message.id'))); ?></li>
+		<li><?php echo $this->Html->link(__('Supprimer ce message', true), array('action' => 'delete', $this->Form->value('Message.id')), null, sprintf(__('ætes vous sur de vouloir supprimer # %s?', true), $this->Form->value('Message.id'))); ?></li>
 		<li><?php echo $this->Html->link(sprintf(__('Liste des %s', true), __('Messages', true)), array('action' => 'index'));?></li>
 	</ul>
 </div>

@@ -33,5 +33,5 @@
     <br/><br/>
     Merci et à très bientôt!
     
-    <?php $this->Html->link('Retour à l\'accueil du site', array('controller'=>'pages','action'=>'index') ); ?>
+   <a href="<?php e(Configure::read('site.URL'));?>"><?php e(Configure::read('site.URL'));?></a>
 </p>

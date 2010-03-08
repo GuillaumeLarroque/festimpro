@@ -21,7 +21,13 @@ class UsersController extends AppController
         $nombre_resas=0;
         foreach($matches as $match)
         {
-            $conditions = array('Reservation.match_id'=>array($match['Match']['id'],9) );
+            if( $match['Match']['id']==8 )
+                $conditions = array('Reservation.match_id'=>8 );
+            else if( $match['Match']['id']==9 )
+                $conditions = array('Reservation.match_id'=>9 );
+            else
+                $conditions = array('Reservation.match_id'=>array($match['Match']['id'],9) );
+            
              
             $reservations = $this->Reservation->find('all', array('fields'=>array('Reservation.match_id', 'SUM(Reservation.nombre_de_places) as nombre'), 'conditions'=>$conditions ) ); 
             

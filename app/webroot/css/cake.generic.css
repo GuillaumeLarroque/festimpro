@@ -29,6 +29,51 @@ body {
 	font-size:90%;
 	margin: 0;
 }
+
+
+/*Livre d'or*/
+.LO_conteneur{
+	margin: 10px 5px 40px 5px;
+	width: 600px;
+}
+
+.LO_titre{
+	background: #993300;
+	color : #cc9966;
+
+}
+
+.LO_titre h1{
+	background: #993300;
+	color : #cc9999;
+	font-size: 1.4em;
+	padding: 5px;
+	margin: 5px;
+}
+
+.LO_message{
+	font-size: 1em;
+	padding: .5em 1em;
+}
+
+.LO_pied{
+	font-size: 0.8em;
+	color: #ddd;
+	text-align:right;
+	border-bottom: 1px solid #ddd;
+}
+
+
+#signature{
+	font-size: 0.8em;
+}
+
+#signature a {
+	text-decoration: none;
+	color: #ccc;
+	font-size: 0.5em;
+}
+
 a {
 	color: #993300;
 	text-decoration: underline;

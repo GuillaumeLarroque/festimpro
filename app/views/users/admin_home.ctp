@@ -23,8 +23,7 @@
             <td><?php echo $match['Salle']['nombre_de_places'] ?></td>
             <td><?php echo ( $match['Salle']['nombre_de_places']-$resultats[$match_id]['nombre']) ?></td>
             <td class='actions'>
-                <?php echo $this->Html->link('Voir le détail', array('controller'=>'matches', 'admin'=>'true', 'action'=>'view', $match['Match']['id'])); ?>
-                <?php echo $this->Html->link('Voir les réservations', array('controller'=>'reservations', 'admin'=>'true', 'action'=>'liste', $match_id) ); ?>
+                <?php echo $this->Html->link('Voir les réservations', array('controller'=>'matches', 'admin'=>'true', 'action'=>'view', $match['Match']['id'])); ?>
             </td>
         </tr>
         <?php endforeach; ?>

@@ -1,6 +1,8 @@
 	<h2><?php __('Bienvenue sur le service de réservation en ligne du festival impro 14');?></h2>
-	<p>La réservation est gratuite, le paiement s'effectuera sur place avant le match (pas de paiement en ligne nécessaire).
-	<br/>Sélectionnez le match pour lequel vous souhaitez réserver et suivez simplement les instructions. L'opération prend seulement quelques secondes.</p>
+	<p style="margin-bottom:10px;">La réservation est gratuite, le paiement s'effectuera sur place avant le match (pas de paiement en ligne nécessaire).
+	<br/>Sélectionnez le match pour lequel vous souhaitez réserver et suivez simplement les instructions. L'opération prend seulement quelques secondes.
+	<br/><br/>N.B. : Si vous souhaitez nous contacter par rapport à une réservation que vous avez déjà effectué, merci d'envoyer un mail à l'adresse suivante : <?php echo $this->Html->link(Configure::read('site.adminEmail'), Configure::read('site.adminEmail')); ?>.
+	</p>
 	
 	<table cellpadding="0" cellspacing="0">
 	<tr>
@@ -26,14 +28,7 @@
 		</td>		
 		<td class="actions">
 			<?php
-			/*
-			if($match['Match']['id']==8)
-				$action='gala';
-			else if($match['Match']['id']==9)
-				$action='pass';
-			else*/
 			$action='match';
-				
 			echo $this->Html->link(__('Reserver', true), array('controller'=>'reservations', 'action' => $action, $match['Match']['id'])); ?>
 		</td>
 	</tr>

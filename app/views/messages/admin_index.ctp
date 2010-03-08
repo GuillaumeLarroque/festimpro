@@ -6,7 +6,7 @@
 			<th><?php echo $this->Paginator->sort('nom');?></th>
 			<th><?php echo $this->Paginator->sort('texte');?></th>
 			<th><?php echo $this->Paginator->sort('email');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('Posté le ');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -26,7 +26,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('Voir', true), array('action' => 'view', $message['Message']['id'])); ?>
 			<?php echo $this->Html->link(__('Modifier', true), array('action' => 'edit', $message['Message']['id'])); ?>
-			<?php echo $this->Html->link(__('Supprimer', true), array('action' => 'delete', $message['Message']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $message['Message']['id'])); ?>
+			<?php echo $this->Html->link(__('Supprimer', true), array('action' => 'delete', $message['Message']['id']), null, sprintf(__('Etes vous sur de vouloir supprimer # %s?', true), $message['Message']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

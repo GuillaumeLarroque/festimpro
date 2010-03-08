@@ -22,14 +22,12 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
-		<?php echo $title_for_layout; ?>
+		<?php __('Administration du site :'); ?>
 	</title>
 	<style type="text/css">
 		
 		#menu {
 			padding:0;
-			margin:0;
 			list-style-type:none;
 			}
 		#enu li {
@@ -40,15 +38,15 @@
 			display:block;
 			float:left;   
 			width:100px;
-			background-color:#6495ED;
+			background-color:#996633;
 			color:black;
 			text-decoration:none;
 			text-align:center;
 			padding:5px;
 			border:2px solid;
-			/*pour avoir un effet "outset" avec IE :*/
 			border-color:#DCDCDC #696969 #696969 #DCDCDC;
 		}
+		
 		#menu li a:hover {
 			background-color:#D3D3D3;
 			border-color:#696969 #DCDCDC #DCDCDC #696969;
@@ -70,7 +68,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link(__('ADMINISTRATION du festival Impro 14', true), 'http://cakephp.org'); ?></h1>
+			<h1><?php echo $this->Html->link(__('ADMINISTRATION du festival Impro 14', true), Configure::read('site.URL').'admin' ); ?></h1>
 		<ul id="menu">
 			<li>
 			<?php echo $this->Html->link(__('Liste des matchs', true), array('controller'=>'users', 'admin'=>'true', 'action' => 'home')); ?>
@@ -91,9 +89,7 @@
 
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
-					'http://www.cakephp.org/',
+			<?php echo $this->Html->link('Afficher le site', Configure::read('site.URL'),
 					array('target' => '_blank', 'escape' => false)
 				);
 			?>

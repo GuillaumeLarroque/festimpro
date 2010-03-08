@@ -3,6 +3,14 @@ class MessagesController extends AppController {
 
 	var $name = 'Messages';
 	var $components = array('Captcha');
+	
+    var $paginate = array(
+		'limit' => 25,
+		'order' => array(
+			'Message.created' => 'desc'
+		)
+	);
+
 
 	function securimage($random_number){
 		$this->autoLayout = false; //a blank layout

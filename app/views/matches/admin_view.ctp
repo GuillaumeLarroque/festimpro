@@ -83,7 +83,7 @@
 			<td class="actions">
 				<?php echo $this->Html->link(__('Détails', true), array('controller' => 'reservations', 'action' => 'view', $reservation['Reservation']['id'])); ?>
 				<?php echo $this->Html->link(__('Modifier', true), array('controller' => 'reservations', 'action' => 'edit', $reservation['Reservation']['id'])); ?>
-				<?php echo $this->Html->link(__('Supprimer', true), array('controller' => 'reservations', 'action' => 'delete', $reservation['Reservation']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $reservation['Reservation']['id'])); ?>
+				<?php echo $this->Html->link(__('Supprimer', true), array('controller' => 'reservations', 'action' => 'delete', $reservation['Reservation']['id']), null, sprintf(__('Etes vous sur de vouloir suprimer # %s?', true), $reservation['Reservation']['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

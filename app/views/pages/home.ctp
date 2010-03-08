@@ -1,13 +1,16 @@
 <?php $this->layout = 'accueil'; ?>
-<h1>Festival Impro14</h1>
-
 
 <?php
-    $this->addScript('flash', $swfobject->create('/img/impro14.swf', 'anim', array('width' => 700, 'height' => 500, 'express' => '/img/expressInstall.swf')));
-?> 
+    $this->addScript('flash', $swfobject->create('/img/prechargeur.swf', 'anim', array('width' => 950, 'height' => 720, 'express' => '/img/expressInstall.swf')));
+?>
 
- 
+	
 <div id="anim">
-	<p>Ici le texte alternatif qui sera affiché si le lecteur Flash n'est pas présent.</p>
+	<p>TEXTE PR√âSENTATION RAPIDE : </p>
+	<br/>
+	<?php echo $this->Html->link('R√©server vos places', array('controller'=>'matches', 'action'=>'index') ); ?>
+	<br/>
+	<?php echo $this->Html->link('Acc√©der au livre d\'or', array('controller'=>'matches', 'action'=>'index') ); ?>
+	<br/>
+	<a 
 </div>
-

@@ -13,6 +13,6 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Salles', true)), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(sprintf(__('Liste des %s', true), __('Salles', true)), array('action' => 'index'));?></li>
 	</ul>
 </div>

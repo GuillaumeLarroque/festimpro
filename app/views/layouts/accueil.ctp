@@ -23,39 +23,31 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
-		<?php echo $title_for_layout; ?>
+		<?php __('Festival impro14 !'); ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('cake.flash');
 
 		echo $this->Javascript->link('swfobject');
+		
 		echo $scripts_for_layout;
 	?>
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link(__('CakePHP: the rapid development php framework', true), 'http://cakephp.org'); ?></h1>
-		</div>
 		<div id="content">
-
-			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $content_for_layout; ?>
 
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+			TEXTE DE PRÉSENTATION AVEC MOT CLÉS. OPTIMISÉ POUR LE RÉFÉRENCEMENT.
+			<br/>
+			<?php echo $this->Html->link('réalisation creagraphie.fr', 'http://www.creagraphie.fr', array('class'=>'signature', 'target'=>'_blank') ); ?></span>
 		</div>
+			
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

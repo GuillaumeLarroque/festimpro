@@ -13,22 +13,22 @@
 	<div class="LO_conteneur">
 		
 		<div class="LO_titre">
-		le <?php echo strftime("%d %B %Y à %H:%M", strtotime($message['Message']['created'] ) );?>,
-		<b>
-		<?php echo $message['Message']['nom'];
-		if($message['Message']['email']!=null)
-			echo ' ('.$message['Message']['email'].')';
-		
-		?>
-		</b> a écrit...
+			<h1>
+				<?php echo $message['Message']['nom'].' :';?>
+			</h1>
 		</div>
 		
 		<div class="LO_message">
-		
-		
 		<p><?php echo $message['Message']['texte'] ?></p>
 		</div>
-		<div class="LO_pied"></div>
+		<div class="LO_pied">
+			<?php echo 'écrit par '.$message['Message']['nom'];
+			if($message['Message']['email']!=null)
+				echo ' ('.$message['Message']['email'].')';
+			
+			?>
+			, le <?php echo strftime("%d %B %Y à %H:%M", strtotime($message['Message']['created'] ) );?>
+		</div>
 	</div>
 	
 <?php endforeach; ?>	

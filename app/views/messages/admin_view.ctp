@@ -21,7 +21,7 @@
 			<?php echo $message['Message']['email']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Posté le'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $message['Message']['created']; ?>
 			&nbsp;
@@ -32,7 +32,7 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('Modifier ce %s', true), __('Message', true)), array('action' => 'edit', $message['Message']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('Supprimer ce %s', true), __('Message', true)), array('action' => 'delete', $message['Message']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $message['Message']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('Supprimer ce %s', true), __('Message', true)), array('action' => 'delete', $message['Message']['id']), null, sprintf(__('Êtes vous sur de vouloir supprimer # %s?', true), $message['Message']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Liste des %s', true), __('Messages', true)), array('action' => 'index')); ?> </li>
 	</ul>
 </div>

@@ -36,7 +36,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link(__('FESTIVAL IMPRO 14', true), ''); ?></h1>
+			<h1><?php echo $this->Html->link(__('FESTIVAL IMPRO 14', true), array('controller'=>'matches','action'=>'index') ); ?></h1>
 			<p>Théatre d'impro,	 Du 3 au 9 mai 2010</p>
 		</div>
 		
@@ -48,7 +48,7 @@
 
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link('Retour au site','',
+			<?php echo $this->Html->link('Retour au site',Configure::read('site.URL'),
 					array('target' => '_blank', 'escape' => false)
 				);
 			?>

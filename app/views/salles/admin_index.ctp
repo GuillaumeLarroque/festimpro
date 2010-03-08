@@ -24,7 +24,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('Détails', true), array('action' => 'view', $salle['Salle']['id'])); ?>
 			<?php echo $this->Html->link(__('Modifier', true), array('action' => 'edit', $salle['Salle']['id'])); ?>
-			<?php echo $this->Html->link(__('Supprimer', true), array('action' => 'delete', $salle['Salle']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $salle['Salle']['id'])); ?>
+			<?php echo $this->Html->link(__('Supprimer', true), array('action' => 'delete', $salle['Salle']['id']), null, sprintf(__('Êtes vous sur de vouloir supprimer # %s?', true), $salle['Salle']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

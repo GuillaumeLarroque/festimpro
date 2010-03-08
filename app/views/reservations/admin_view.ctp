@@ -18,12 +18,12 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Email'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $reservation['Reservation']['email']; ?>
+			<?php echo $this->Html->link($reservation['Reservation']['email'], 'mailto:'.$reservation['Reservation']['email']) ; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Match'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($reservation['Match']['rencontre'], array('controller' => 'matches', 'action' => 'view', $reservation['Match']['id'])); ?>
+			<?php echo $this->Html->link($reservation['Match']['rencontre'].' ('.$reservation['Match']['date'].')', array('controller' => 'matches', 'action' => 'view', $reservation['Match']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nombre De Places'); ?></dt>
@@ -31,7 +31,7 @@
 			<?php echo $reservation['Reservation']['nombre_de_places']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Creation'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Effectué le'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo strftime("%d %B %Y à %H:%M", strtotime($reservation['Reservation']['created']) ); ?>
 			&nbsp;
