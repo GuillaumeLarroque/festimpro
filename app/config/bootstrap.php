@@ -64,5 +64,5 @@ setlocale(LC_TIME, $locale);
  */
  
  Configure::write('site.adminEmail', 'guillaume@creagraphie.fr');
- Configure::write('site.URL', 'http://localhost:8888/impro14/' );
+ Configure::write('site.URL', 'http://www.creagraphie.fr/impro14/' );
 ?>

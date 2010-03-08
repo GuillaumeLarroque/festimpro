@@ -1,1 +1,0 @@
-<h1>Bienvenue sur l'interface d'aministration</h1>

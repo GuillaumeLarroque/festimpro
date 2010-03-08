@@ -32,6 +32,4 @@
     Si vous souhaitez modifier ou annuler cette réservation merci d'envoyer un email à l'adresse suivante : <?php echo $this->Html->link('admin@impro14.com','mailto:admin@impro14.com');?>
     <br/><br/>
     Merci et à très bientôt!
-    
-   <a href="<?php e(Configure::read('site.URL'));?>"><?php e(Configure::read('site.URL'));?></a>
 </p>

@@ -67,7 +67,7 @@ class ReservationsController extends AppController {
 					if ($this->Reservation->save($this->data)) {
 						$this->Session->setFlash(__('Votre reservation a bien été enregistrée', true));
 						$this->_envoiMailUtilisateur($this->Reservation->id);
-						//$this->_envoiMailAdministrateur($this->Reservation->id);
+						$this->_envoiMailAdministrateur($this->Reservation->id);
 						$this->Session->write('reservation_id', $this->Reservation->id);
 						$this->redirect(array('action' => 'confirmation'));
 					} else {
@@ -160,7 +160,7 @@ class ReservationsController extends AppController {
 	function _envoiMailUtilisateur($id) {
 		$reservation = $this->Reservation->read(null,$id);
 		
-		$this->Email->delivery = 'debug';
+		//$this->Email->delivery = 'debug';
 
 		$this->Email->to = $reservation['Reservation']['email'];
 		
